@@ -16,27 +16,29 @@ Designed as a scalable educational project to document concepts such as Spring B
 
 - [1. Project Overview](#1-project-overview)
 - [2. Product Goal](#2-product-goal)
+- [3. Project Structure](#3-project-structure)
+
 - [3. System Architecture](#3-system-architecture)
-  - [3.1 Backend (Spring Boot)](#31-backend-spring-boot)
-  - [3.2 Frontend (React)](#32-frontend-react)
-  - [3.3 Machine Learning Model](#33-machine-learning-model)
-- [4. Domain Model](#4-domain-model)
-  - [4.1 Person / Owner / Reviewer](#41-person--owner--reviewer)
-  - [4.2 Apartment](#42-apartment)
-  - [4.3 Review](#43-review)
-- [5. REST API Endpoints](#5-rest-api-endpoints)
-- [6. UML Diagram](#6-uml-diagram)
-- [7. Entity–Relationship Diagram](#7-entityrelationship-diagram)
-- [8. Technical Documentation](#8-technical-documentation)
-  - [8.1 Lombok](#81-lombok)
-  - [8.2 H2 Database](#82-h2-database)
-  - [8.3 JPA](#83-jpa)
-  - [8.4 JUnit](#84-junit)
-  - [8.5 MVC Architecture](#85-mvc-architecture)
-- [9. Installation & Setup](#9-installation--setup)
-- [10. Project Status](#10-project-status)
-- [11. Roadmap](#11-roadmap)
-- [12. Credits & Dataset](#12-credits--dataset)
+  - [4.1 Backend (Spring Boot)](#41-backend-spring-boot)
+  - [4.2 Frontend (React)](#32-frontend-react)
+  - [4.3 Machine Learning Model](#43-machine-learning-model)
+- [5. Domain Model](#4-domain-model)
+  - [5.1 Person / Owner / Reviewer](#51-person--owner--reviewer)
+  - [5.2 Apartment](#42-apartment)
+  - [5.3 Review](#43-review)
+- [6. REST API Endpoints](#5-rest-api-endpoints)
+- [7. UML Diagram](#6-uml-diagram)
+- [8. Entity–Relationship Diagram](#8-entityrelationship-diagram)
+- [9. Technical Documentation](#9-technical-documentation)
+  - [9.1 Lombok](#81-lombok)
+  - [9.2 H2 Database](#82-h2-database)
+  - [9.3 JPA](#83-jpa)
+  - [9.4 JUnit](#84-junit)
+  - [9.5 MVC Architecture](#85-mvc-architecture)
+- [10. Installation & Setup](#10-installation--setup)
+- [11. Project Status](#10-project-status)
+- [12. Roadmap](#11-roadmap)
+- [13. Credits & Dataset](#12-credits--dataset)
 
 ---
 
@@ -75,11 +77,42 @@ The full-stack objective includes:
 - A **responsive, minimalistic interface**
 - Clear documentation of backend, frontend, and ML workflows
 
+
 ---
 
-## 3. System Architecture
+## 3. Project Structure
 
-### 3.1 Backend (Spring Boot)
+src/main/java/com/example/apartmentpredictor
+    │
+    ├── entities
+    │   ├── Person.java
+    │   ├── Owner.java
+    │   ├── Reviewer.java
+    │   ├── Apartment.java
+    │   └── Review.java
+    │
+    ├── controllers
+    │   ├── ApartmentController.java
+    │   ├── OwnerController.java
+    │   ├── ReviewerController.java
+    │   ├── ReviewController.java
+    │   └── PricePredictionController.java
+    │
+    ├── services
+    │   ├── ApartmentService.java
+    │   ├── OwnerService.java
+    │   ├── ReviewerService.java
+    │   ├── ReviewService.java
+    │   └── PricePredictionService.java
+    │
+    └── utils
+        └── DataLoader.java
+
+---
+
+## 4. System Architecture
+
+### 4.1 Backend (Spring Boot)
 
 **Core dependencies:**
 
@@ -98,7 +131,7 @@ The full-stack objective includes:
 
 ---
 
-### 3.2 Frontend (React)
+### 4.2 Frontend (React)
 
 Key responsibilities:
 
@@ -110,7 +143,7 @@ Key responsibilities:
 
 ---
 
-### 3.3 Machine Learning Model
+### 4.3 Machine Learning Model
 
 - Regularized regression (Ridge / Lasso)  
 - Handles strong multicollinearity  
@@ -121,9 +154,9 @@ Key responsibilities:
 
 ---
 
-## 4. Domain Model
+## 5. Domain Model
 
-### 4.1 Person / Owner / Reviewer
+### 5.1 Person / Owner / Reviewer
 
 ```java
 Person:
@@ -161,3 +194,5 @@ Apartment:
 - furnishingstatus
 - Owner owner
 - List<Review> reviews
+
+---
