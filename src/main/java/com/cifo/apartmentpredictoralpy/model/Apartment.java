@@ -170,7 +170,7 @@ public class Apartment {
         return parking;
     }
 
-    public void setParking(byte parking) {
+    public void setParking(int parking) {
         this.parking = parking;
     }
 
