@@ -102,6 +102,12 @@ public class Reviewer extends Person {
 }
 ```
 
+``` mermaid
+classDiagram
+direction LR
+Person <|-- Owner
+```
+
 ------------------------------------------------------------------------
 
 ## 2️⃣ Composition `*--`
@@ -123,6 +129,12 @@ meaning.
 public class Owner extends Person {
     private List<Apartment> apartments = new ArrayList<>();
 }
+```
+
+``` mermaid
+classDiagram
+direction LR
+Owner *-- Apartment
 ```
 
 ------------------------------------------------------------------------
@@ -151,6 +163,12 @@ public class Reviewer {
     private List<Review> reviews = new ArrayList<>();
 }
 ```
+``` mermaid
+classDiagram
+direction LR
+Apartment *--> Review
+Reviewer *--> Review
+```
 
 ------------------------------------------------------------------------
 
@@ -175,41 +193,91 @@ public class Review {
     private Apartment apartment;
 }
 ```
+``` mermaid
+classDiagram
+direction LR
+Reviewer *-- Review
+Apartment *-- Review
+```
 
 ------------------------------------------------------------------------
 
-# Mermaid Examples
+------------------------------------------------------------------------
 
-## Inheritance
+## 4️⃣ Aggregation `o--`
 
-``` mermaid
+A weak "has a" relationship.\
+The part **can exist independently** of the whole.
+
+**Example:**\
+- `Team o-- Player`\
+  Players exist even if the team is disbanded.
+
+```mermaid
 classDiagram
 direction LR
-Person <|-- Owner
+Team o-- Player : has
+```
+**Usage:**\
+Use aggregation when a class *contains* or *manages* other objects, but
+does not "own" them.
+
+
+### In your UML:
+
+    -   There is not an Aggregation relationship in this UML
+
+### Meaning
+
+    -   No meaning
+
+### Code Example
+
+``` java
+public class {
+    private 
+    private 
+}
 ```
 
-## Composition
+------------------------------------------------------------------------
 
-``` mermaid
+
+## 4️⃣ Association `-->`
+
+A general relationship between two classes.\
+Describes interaction, communication, or a simple reference.
+
+**Example:**\
+- `Teacher --> Course`\
+  A teacher teaches a course.
+
+```mermaid
 classDiagram
 direction LR
-Owner *-- Apartment
-```
+    Teacher --> Course : teaches
+```   
 
-## Aggregation
+**Usage:**\
+Use association for most general relationships that don't imply
+ownership or dependence.
 
-``` mermaid
-classDiagram
-direction LR
-Team o-- Player
-```
 
-## Association
+### In your UML:
 
-``` mermaid
-classDiagram
-direction LR
-Teacher --> Course
+    -   There is not an Aggregation relationship in this UML
+
+### Meaning
+
+    -   No meaning
+
+### Code Example
+
+``` java
+public class {
+    private 
+    private 
+}
 ```
 
 ------------------------------------------------------------------------
