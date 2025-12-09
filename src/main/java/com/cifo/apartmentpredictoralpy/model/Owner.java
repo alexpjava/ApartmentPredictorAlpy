@@ -1,4 +1,4 @@
-package com.cifo.apartmentpredictoralpy;
+package com.cifo.apartmentpredictoralpy.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -70,10 +70,10 @@ public class Owner extends Person {
     public List<Apartment> getApartments() {
         return apartments;
     }
-    public void addApartment(Apartment a) {
-        this.apartments.add(a);
-        a.setOwner(this); // Keep relation consistent. IA advice after checking.
-    }
+    //public void addApartment(Apartment a) {
+    //    this.apartments.add(a);
+     //   a.setOwner(this); // Keep relation consistent. IA advice after checking.
+   // }
 
     @Override
     public String toString() {

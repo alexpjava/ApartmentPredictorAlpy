@@ -1,4 +1,4 @@
-package com.cifo.apartmentpredictoralpy;
+package com.cifo.apartmentpredictoralpy.model;
 
 import java.time.LocalDate;
 

@@ -1,10 +1,30 @@
-package com.cifo.apartmentpredictoralpy;
+package com.cifo.apartmentpredictoralpy.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+
+/**
+ * Represents the Apartment entity within the application's data model.
+ *
+ * This class defines the structure of the corresponding database table,
+ * including its main attributes and any relationships with other domain
+ * entities. It is used by JPA/Hibernate to automatically map its fields
+ * to persistent storage.
+ */
+
+@Entity
+@Table(name = "Apartment")
+
 public class Apartment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private Integer price;
@@ -24,8 +44,8 @@ public class Apartment {
     private String furnishingstatus;
 
     // Relationships
-    private Owner owner;
-    private List<Review> reviews = new ArrayList<>();
+    //private Owner owner;
+    //private List<Review> reviews = new ArrayList<>();
 
     public Apartment() {
     }
@@ -46,8 +66,8 @@ public class Apartment {
         this.parking = parking;
         this.prefarea = prefarea;
         this.furnishingstatus = furnishingstatus;
-        this.owner = owner;
-        this.reviews = reviews;
+        //this.owner = owner;
+        //this.reviews = reviews;
     }
 
     public long getId() {
@@ -169,7 +189,7 @@ public class Apartment {
     public void setFurnishingstatus(String furnishingstatus) {
         this.furnishingstatus = furnishingstatus;
     }
-
+/* 
     public Owner getOwner() {
         return owner;
     }
@@ -207,4 +227,5 @@ public class Apartment {
                 ", reviews=" + reviews +
                 '}';
     }
+                */
 }
