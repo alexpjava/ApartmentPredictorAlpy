@@ -4,6 +4,27 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+/**
+ * The Owner entity represents a property owner in the system.
+ * It extends the Person base class, inheriting personal information fields.
+ *
+ * This entity is mapped to the "owners" table and maintains a one-to-many
+ * relationship with Apartment. Each owner may manage multiple apartments.
+ *
+ * JPA Requirements:
+ * - A no-argument constructor is required by the JPA specification.
+ * - The primary key (id) is inherited from Person, annotated in the superclass.
+ * - The apartments list is configured as a bidirectional relationship using
+ *   @OneToMany(mappedBy = "owner").
+ */
+
+@Entity
+@Table(name = "owner")
+
 public class Owner extends Person {
 
     private boolean isActive;
@@ -13,8 +34,12 @@ public class Owner extends Person {
     private int qtyDaysAsOwner;
 
     // Relationships
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Apartment> apartments = new ArrayList<>();
 
+    public Owner() {   // OBLIGATORIO para JPA
+        super();
+    }
 
     public Owner(int id, String name, String email, int age) {
         super(id, name, email, age);

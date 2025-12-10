@@ -1,7 +1,24 @@
 package com.cifo.apartmentpredictoralpy.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Id;
+
+/**
+ * @MappedSuperclass indicates that this class provides persistent fields
+ * which will be inherited by its subclasses (e.g., Owner and Reviewer),
+ * but this class itself is not mapped to a database table.
+ *
+ * The fields defined here (id, name, email, age) will be included in the
+ * tables of the subclasses, avoiding code duplication while ensuring
+ * consistent structure across all entities that extend Person.
+ */
+@MappedSuperclass
 public abstract class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String email;

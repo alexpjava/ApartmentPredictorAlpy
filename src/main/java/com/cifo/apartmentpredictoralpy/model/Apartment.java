@@ -8,6 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 /**
  * Represents the Apartment entity within the application's data model.
@@ -44,7 +47,11 @@ public class Apartment {
     private String furnishingstatus;
 
     // Relationships
+    //@ManyToOne
+    //@JoinColumn(name = "owner_id")
     //private Owner owner;
+
+    //@OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL, orphanRemoval = true)
     //private List<Review> reviews = new ArrayList<>();
 
     public Apartment() {
