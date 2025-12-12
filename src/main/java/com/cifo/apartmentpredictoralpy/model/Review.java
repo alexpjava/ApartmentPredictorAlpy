@@ -1,6 +1,13 @@
 package com.cifo.apartmentpredictoralpy.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 import java.time.LocalDate;
+
+
+@Entity
+@Table(name = "Review")
 
 public class Review {
 

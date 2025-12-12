@@ -36,6 +36,7 @@ Designed as a scalable educational project to document concepts such as Spring B
   - [9.3 JPA](#93-jpa)
   - [9.4 JUnit](#94-junit)
   - [9.5 MVC Architecture](#95-mvc-architecture)
+  - [9.6 CsvToH2](#96-CsvToH2)
 - [10. Installation & Setup](#10-installation--setup)
 - [11. Project Status](#11-project-status)
 - [12. Roadmap](#12-roadmap)
