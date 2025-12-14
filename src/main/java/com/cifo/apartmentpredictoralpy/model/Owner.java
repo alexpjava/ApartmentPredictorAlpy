@@ -7,7 +7,6 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
 /**
  * The Owner entity represents a property owner in the system.
@@ -25,7 +24,6 @@ import jakarta.persistence.Table;
 
 @Entity
 //@Table(name = "Owner")
-
 public class Owner extends Person {
 
     private boolean isActive;
@@ -36,31 +34,32 @@ public class Owner extends Person {
 
     // Relationships
     /**
-     * La clase Owner hereda de Person.
+     * The Owner class extends Person.
      *
-     * Esta propiedad define una relación uno a muchos (1..N) entre Owner y Apartment,
-     * donde un Owner puede estar asociado a múltiples Apartments.
+     * This property defines a one-to-many (1..N) relationship between Owner and Apartment,
+     * where an Owner can be associated with multiple Apartments.
      *
-     * La anotación @OneToMany indica que Owner es el lado inverso (no propietario)
-     * de la relación, siendo la entidad Apartment la que posee la clave foránea
-     * en la base de datos.
+     * The @OneToMany annotation indicates that Owner is the inverse (non-owning) side
+     * of the relationship, with the Apartment entity being the one that owns the foreign key
+     * in the database.
      *
-     * El atributo mappedBy = "owner" hace referencia al nombre del campo 'owner'
-     * definido en la clase Apartment, el cual establece la relación @ManyToOne
-     * y contiene la clave foránea que vincula Apartment con Owner.
+     * The mappedBy = "owner" attribute refers to the name of the 'owner' field
+     * defined in the Apartment class, which establishes the @ManyToOne relationship
+     * and contains the foreign key that links Apartment to Owner.
      *
-     * Esto significa que Owner no crea ni mantiene la columna en la base de datos,
-     * sino que la relación es gestionada desde la entidad Apartment.
+     * This means that Owner does not create or maintain the column in the database;
+     * instead, the relationship is managed from the Apartment entity.
      *
-     * cascade = CascadeType.ALL propaga todas las operaciones de persistencia
-     * (persist, merge, remove, refresh y detach) desde Owner hacia sus Apartments.
+     * cascade = CascadeType.ALL propagates all persistence operations
+     * (persist, merge, remove, refresh, and detach) from Owner to its Apartments.
      *
-     * orphanRemoval = true indica que si un Apartment es eliminado de la colección
-     * apartments, este será eliminado automáticamente de la base de datos.
+     * orphanRemoval = true indicates that if an Apartment is removed from the
+     * apartments collection, it will be automatically deleted from the database.
      *
-     * La lista apartments se inicializa para evitar valores nulos y facilitar
-     * la gestión directa de la relación entre Owner y Apartment.
+     * The apartments list is initialized to avoid null values and to facilitate
+     * direct management of the relationship between Owner and Apartment.
      */
+
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Apartment> apartments = new ArrayList<>();
 
@@ -107,10 +106,10 @@ public class Owner extends Person {
     public LocalDate getRegistrationDate() {
         return registrationDate;
     }
-    public void setRegistrationDate(LocalDate registrationDate){
-        this.registrationDate = registrationDate;
-    }
+    public void setRegistrationDate(LocalDate now){
 
+        this.registrationDate = LocalDate.now();
+    }
     public int getQtyDaysAsOwner() {
         return qtyDaysAsOwner;
     }
@@ -122,10 +121,10 @@ public class Owner extends Person {
     public List<Apartment> getApartments() {
         return apartments;
     }
-    //public void addApartment(Apartment a) {
-    //    this.apartments.add(a);
-     //   a.setOwner(this); // Keep relation consistent. IA advice after checking.
-   // }
+    public void addApartment(Apartment a) {
+      this.apartments.add(a);
+     a.setOwner(this); // Keep relation consistent. IA advice after checking.
+    }
 
     @Override
     public String toString() {

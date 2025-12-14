@@ -12,8 +12,6 @@ import java.time.LocalDate;
 public class ReviewRepositoryTest {
     @Autowired
     private ReviewRepository reviewRepository;
-    //@Autowired
-    //private Apartment apartment;
 
     @Test
     void testCreateAndPersistReview() {
@@ -24,7 +22,9 @@ public class ReviewRepositoryTest {
         review1.setRating(5);
         review1.setDate(LocalDate.now());
         review1.setTitle("Nice Apartment in Fifth Avenue");
-        //review1.setApartment(apartment);
+
+        //Apartment apartment1 = new Apartment();
+        //review1.setApartment(apartment1);
 
     }
 
