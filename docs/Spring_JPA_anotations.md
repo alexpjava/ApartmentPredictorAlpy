@@ -20,24 +20,32 @@
 | JPA / Hibernate | `@ManyToMany` | `jakarta.persistence` | Defines a many-to-many relationship between entities. |
 | JPA / Hibernate | `@Transient` | `jakarta.persistence` | Marks a field that will not be persisted in the database. |
 
+---
+## Spring Boot Common Annotations
+
 
 ```mermaid
-flowchart LR
-    Spring[Spring Framework]
+
+ flowchart TD
+    Spring[**Spring Framework**]
+    Spring --> Autowired["@Autowired<br/>Dependency Injection"]
+    Spring --> Component["@Component"]
+    Spring --> Service["@Service"]
+    Spring --> Repository["@Repository"]
+    Spring --> RestController["@RestController"]
+    Spring --> Qualifier["@Qualifier"]
+```
+---
+## JPA Common Annotations
+
+```mermaid
+flowchart TD
     JPA[JPA / Hibernate]
-
-    Spring --> A[@Autowired<br/>Dependency Injection]
-    Spring --> C[@Component]
-    Spring --> S[@Service]
-    Spring --> R[@Repository]
-    Spring --> RC[@RestController]
-    Spring --> Q[@Qualifier]
-
-    JPA --> E[@Entity]
-    JPA --> T[@Table]
-    JPA --> I[@Id]
-    JPA --> G[@GeneratedValue]
-    JPA --> Col[@Column]
-    JPA --> Rel[@OneToMany / @ManyToOne<br/>@OneToOne / @ManyToMany]
-    JPA --> Tr[@Transient]
+    JPA --> Entity["@Entity"]
+    JPA --> Table["@Table"]
+    JPA --> Id["@Id"]
+    JPA --> GeneratedValue["@GeneratedValue"]
+    JPA --> Column["@Column"]
+    JPA --> Relations["@OneToMany / @ManyToOne<br/>@OneToOne / @ManyToMany"]
+    JPA --> Transient["@Transient"]
 ```
