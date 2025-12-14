@@ -29,7 +29,6 @@ public class Apartment {
     private Integer bedrooms;
     private Integer bathrooms;
     private Integer stories;
-
     private boolean mainroad;
     private boolean guestroom;
     private boolean basement;
@@ -68,7 +67,11 @@ public class Apartment {
     @JoinColumn(name = "idPerson")
     private Owner owner;
 
-    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(
+            mappedBy = "apartment",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
     private List<Review> reviews = new ArrayList<>();
 
     public Apartment() {
@@ -99,9 +102,9 @@ public class Apartment {
     }
 
 
-    //public void setIdApartment(int idApartment) {
-    //    this.idApartment = idApartment;
-    //}
+    public void setIdApartment(int idApartment) {
+        this.idApartment = idApartment;
+    }
 
     public Integer getPrice() {
         return price;
