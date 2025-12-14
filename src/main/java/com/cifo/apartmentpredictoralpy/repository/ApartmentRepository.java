@@ -18,6 +18,21 @@ import com.cifo.apartmentpredictoralpy.model.Apartment;
  * and declarative way.
  */
 
+
+
+/**
+This line declares a public Java interface called ApartmentRepository.
+An interface defines a contract (methods) but does not contain implementations.
+The keyword 'extends' means that ApartmentRepository inherits from another interface.
+In Java, interfaces extend other interfaces (they do not use 'implements').
+CrudRepository<Apartment, Long> is a Spring Data interface that already defines
+basic CRUD operations (Create, Read, Update, Delete).
+    - Apartment: the entity type this repository manages.
+    - Long: the type of the entity's primary key (@Id).
+By extending CrudRepository, Spring Data automatically provides the
+implementation of these methods at runtime, so no manual coding is required.
+*/
+
 public interface ApartmentRepository extends CrudRepository <Apartment, Long>{
 
 }

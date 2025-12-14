@@ -1,24 +1,30 @@
 package com.cifo.apartmentpredictoralpy.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "Review")
+//@Table(name = "Review")
 
 public class Review {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int rating;
     private String comment;
     private LocalDate date;
+    private String title;
 
     // Relationships
+    @ManyToOne
+    @JoinColumn(name = "idReviewer")
     private Reviewer reviewer;  // one reviewer
+    @ManyToOne
+    @JoinColumn(name = "idApartment")
     private Apartment apartment; // one apartment
+
 
     public Review() {}
 
@@ -55,6 +61,12 @@ public class Review {
         this.date = date;
     }
 
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
     public Reviewer getReviewer() {
         return reviewer;
     }

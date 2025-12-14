@@ -8,6 +8,8 @@ class ApartmentPredictorAlpyApplicationTests {
 
 	@Test
 	void contextLoads() {
+
+
 	}
 
 }

@@ -3,15 +3,16 @@ package com.cifo.apartmentpredictoralpy.repository;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
+import com.cifo.apartmentpredictoralpy.model.Owner;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.cifo.apartmentpredictoralpy.model.Apartment;
-//import com.cifo.apartmentpredictoralpy.model.Owner;
+import com.cifo.apartmentpredictoralpy.model.Owner;
 
-/*
+/**
  * NOTE: Difference between @SpringBootTest and @DataJpaTest
  *
  * @SpringBootTest:
@@ -34,15 +35,15 @@ import com.cifo.apartmentpredictoralpy.model.Apartment;
 @SpringBootTest
 public class ApartmentRepositoryTest {
 
- @Autowired
+    @Autowired
     private ApartmentRepository apartmentRepository;
 
     @Test
     void testCreateAndPersistApartment() {
 
-        // Create an Owner (if your entity requires it)
-        //Owner owner = new Owner();
-        //owner.setName("John Doe");
+        //Create an Owner (if your entity requires it)
+        Owner owner = new Owner();
+        owner.setName("John Doe");
 
         // Create Apartment
         Apartment apartment = new Apartment();
@@ -60,14 +61,14 @@ public class ApartmentRepositoryTest {
         apartment.setParking(1);
         apartment.setPrefarea(true);
         apartment.setFurnishingstatus("furnished");
-        //apartment.setOwner(owner);
+        apartment.setOwner(owner);
 
         // Persist object into H2
         Apartment saved = apartmentRepository.save(apartment);
 
         // Assertions
         assertThat(saved).isNotNull();
-        assertThat(saved.getId()).isGreaterThan(0);
+        assertThat(saved.getIdApartment()).isGreaterThan(0);
         assertThat(saved.getPrice()).isEqualTo(150000);
     }
 

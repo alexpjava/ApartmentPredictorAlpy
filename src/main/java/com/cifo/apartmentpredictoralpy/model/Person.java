@@ -19,25 +19,25 @@ public abstract class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idPerson;
     private String name;
     private String email;
     private int age;
 
     public Person() {}
 
-    public Person(long id, String name, String email, int age) {
-        this.id = id;
+    public Person(long idPerson, String name, String email, int age) {
+        this.idPerson = idPerson;
         this.name = name;
         this.email = email;
         this.age = age;
     }
 
-    public long getId() {
-        return id;
+    public long getIdPerson() {
+        return idPerson;
     }
-    public void setId(long id) {
-        this.id = id;
+    public void setIdPerson(long idPerson) {
+        this.idPerson = idPerson;
     }
 
     public String getName() {
@@ -65,7 +65,7 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
+                "idPerson=" + idPerson +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +

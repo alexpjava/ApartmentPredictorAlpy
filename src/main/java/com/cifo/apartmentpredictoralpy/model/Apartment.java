@@ -3,14 +3,8 @@ package com.cifo.apartmentpredictoralpy.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
 /**
  * Represents the Apartment entity within the application's data model.
@@ -22,13 +16,13 @@ import jakarta.persistence.OneToMany;
  */
 
 @Entity
-@Table(name = "Apartment")
-
+//@Component
+//@Table(name = "Apartment")
 public class Apartment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idApartment;
 
     private Integer price;
     private Integer area;
@@ -46,19 +40,42 @@ public class Apartment {
     private boolean prefarea;
     private String furnishingstatus;
 
-    // Relationships
-    //@ManyToOne
-    //@JoinColumn(name = "owner_id")
-    //private Owner owner;
+    //Relationships
+    /**
+     * Esta propiedad define una relación muchos a uno (N..1) entre Apartment y Owner,
+     * donde múltiples Apartments pueden estar asociados a un mismo Owner.
+     *
+     * La anotación @ManyToOne indica que Apartment es el lado propietario de la relación
+     * y es responsable de mantener la clave foránea en la base de datos.
+     *
+     * La anotación @JoinColumn(name = "idOwner") especifica la columna de la tabla
+     * Apartment que actúa como clave foránea y referencia al identificador del Owner.
+     *
+     * Esta columna (idOwner) guarda el ID del Owner al que pertenece el Apartment y
+     * debe coincidir con la clave primaria de la tabla Owner (Owner.idOwner), garantizando
+     * la integridad referencial en la base de datos.
+     *
+     * Por ejemplo, en la base de datos:
+     *   - Owner.idOwner → clave primaria de Owner
+     *   - Apartment.idOwner → clave foránea que apunta a Owner.idOwner
+     *
+     * Esto asegura que cada Apartment está asociado a un Owner válido existente.
+     *
+     * El atributo owner representa la referencia al Owner asociado al Apartment,
+     * permitiendo navegar desde un Apartment hacia su Owner.
+     */
+    @ManyToOne
+    @JoinColumn(name = "idPerson")
+    private Owner owner;
 
-    //@OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL, orphanRemoval = true)
-    //private List<Review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews = new ArrayList<>();
 
     public Apartment() {
     }
 
-    public Apartment(long id, Integer price, Integer area, Integer bedrooms, Integer bathrooms, Integer stories, boolean mainroad, boolean guestroom, boolean basement, boolean hotwater, boolean heating, boolean airconditioning, int parking, boolean prefarea, String furnishingstatus, Owner owner, List<Review> reviews) {
-        this.id = id;
+    public Apartment(long idApartment, Integer price, Integer area, Integer bedrooms, Integer bathrooms, Integer stories, boolean mainroad, boolean guestroom, boolean basement, boolean hotwater, boolean heating, boolean airconditioning, int parking, boolean prefarea, String furnishingstatus, Owner owner, List<Review> reviews) {
+        this.idApartment = idApartment;
         this.price = price;
         this.area = area;
         this.bedrooms = bedrooms;
@@ -73,17 +90,18 @@ public class Apartment {
         this.parking = parking;
         this.prefarea = prefarea;
         this.furnishingstatus = furnishingstatus;
-        //this.owner = owner;
-        //this.reviews = reviews;
+        this.owner = owner;
+        this.reviews = reviews;
     }
 
-    public long getId() {
-        return id;
+    public long getIdApartment() {
+        return idApartment;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
+    //public void setIdApartment(int idApartment) {
+    //    this.idApartment = idApartment;
+    //}
 
     public Integer getPrice() {
         return price;
@@ -196,7 +214,7 @@ public class Apartment {
     public void setFurnishingstatus(String furnishingstatus) {
         this.furnishingstatus = furnishingstatus;
     }
-/* 
+
     public Owner getOwner() {
         return owner;
     }
@@ -215,7 +233,7 @@ public class Apartment {
     @Override
     public String toString() {
         return "Apartment{" +
-                "id=" + id +
+                "idApartment=" + idApartment +
                 ", price=" + price +
                 ", area=" + area +
                 ", bedrooms=" + bedrooms +
@@ -234,5 +252,5 @@ public class Apartment {
                 ", reviews=" + reviews +
                 '}';
     }
-                */
+
 }

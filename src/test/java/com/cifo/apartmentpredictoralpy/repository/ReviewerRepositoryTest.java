@@ -1,2 +1,7 @@
-package com.cifo.apartmentpredictoralpy.repository;public class ReviewerRepositoryTest {
+package com.cifo.apartmentpredictoralpy.repository;
+
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class ReviewerRepositoryTest {
 }
