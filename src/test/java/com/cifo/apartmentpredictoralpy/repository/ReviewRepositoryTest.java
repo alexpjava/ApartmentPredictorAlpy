@@ -23,8 +23,8 @@ public class ReviewRepositoryTest {
         review1.setDate(LocalDate.now());
         review1.setTitle("Nice Apartment in Fifth Avenue");
 
-        //Apartment apartment1 = new Apartment();
-        //review1.setApartment(apartment1);
+        Apartment apartment1 = new Apartment();
+        review1.setApartment(apartment1);
 
     }
 
