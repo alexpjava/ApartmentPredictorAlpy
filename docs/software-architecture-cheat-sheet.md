@@ -4,7 +4,7 @@
 ## 1. End-to-End Mental Model
 
 ```mermaid
-flowchart TD
+flowchart LR
     A["Input Data
 (JSON, form data, request payload)"]
     B["Parse
