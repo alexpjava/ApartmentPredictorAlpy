@@ -27,6 +27,7 @@ Designed as a scalable educational project to document concepts such as Spring B
   - [5.2 Apartment](#52-apartment)
   - [5.3 Review](#53-review)
 - [6. REST API Endpoints](#6-rest-api-endpoints)
+  - [6.1 Request Response Cycle](#61-Request-Response-Cycle)
 - [7. UML Diagram](#7-uml-diagram)
 - [7. UML Diagram & notes](docs/uml-notes.md)
 - [8. Entity–Relationship Diagram](#8-entityrelationship-diagram)
@@ -36,11 +37,10 @@ Designed as a scalable educational project to document concepts such as Spring B
   - [9.3 JPA](#93-jpa)
   - [9.4 JUnit](#94-junit)
   - [9.5 MVC Architecture](#95-mvc-architecture)
-  - [9.6 CsvToH2](#96-CsvToH2)
-- [10. Installation & Setup](#10-installation--setup)
-- [11. Project Status](#11-project-status)
-- [12. Roadmap](#12-roadmap)
-- [13. Credits & Dataset](#13-credits--dataset)
+- [10. Installation & Setup](#11-installation--setup)
+- [11. Project Status](#12-project-status)
+- [12. Roadmap](#13-roadmap)
+- [13. Credits & Dataset](#14-credits--dataset)
 
 ---
 
@@ -155,7 +155,6 @@ Key responsibilities:
 📄 Extended documentation: `/docs/ml-model.md`
 
 📄 Extended documentation: `/docs/java_XGBoost_via_Tribuo_Price_Predictor.md`
-[⬅️ java XGBoost via Tribuo Pridictor](/docs/java_XGBoost_via_Tribuo_Price_Predictor.md)
 
 ---
 

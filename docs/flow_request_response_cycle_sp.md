@@ -153,3 +153,6 @@ http://localhost:8080/getById?id=tu-uuid-aquí
 
 **Respuesta:**  
 El servidor devuelve el objeto creado incluyendo el `id` generado automáticamente.
+
+---
+  [⬅️ Back to Index](../README.md#table-of-contents)

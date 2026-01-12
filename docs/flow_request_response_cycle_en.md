@@ -153,3 +153,7 @@ http://localhost:8080/getById?id=your-uuid-here
 
 **Response:**  
 The server returns the created object including the generated `id`.
+
+
+---
+  [⬅️ Back to Index](../README.md#table-of-contents)
