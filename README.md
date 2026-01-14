@@ -18,7 +18,7 @@ Designed as a scalable educational project to document concepts such as Spring B
 - [2. Product Goal](#2-product-goal)
 - [3. Project Structure](#3-project-structure)
 
-- [3. System Architecture](#3-system-architecture)
+- [4. System Architecture](#4-system-architecture)
   - [4.1 Backend (Spring Boot)](#41-backend-spring-boot)
   - [4.2 Frontend (React)](#42-frontend-react)
   - [4.3 Machine Learning Model](#43-machine-learning-model)
@@ -29,7 +29,7 @@ Designed as a scalable educational project to document concepts such as Spring B
 - [6. REST API Endpoints](#6-rest-api-endpoints)
 - [7. UML Diagram](#7-uml-diagram)
 - [7. UML Diagram & notes](docs/uml-notes.md)
-- [8. Entity–Relationship Diagram](#8-entityrelationship-diagram)
+- [8. Entity–Relationship Diagram](docs/entityrelationship-diagram.md)
 - [9. Technical Documentation](#9-technical-documentation)
   - [9.1 Lombok](#91-lombok)
   - [9.2 H2 Database](#92-h2-database)
@@ -37,7 +37,8 @@ Designed as a scalable educational project to document concepts such as Spring B
   - [9.4 JUnit](#94-junit)
   - [9.5 MVC Architecture](#95-mvc-architecture)
   - [9.6 CsvToH2](#96-CsvToH2)
-  - [9.7 Java Classes](#97-java-classes)
+  - [9.7 Java Classes](docs/java-classes.md)
+  - [9.8 Java JAR file & JRE](docs/DATA-create-JAR.md)
 - [10. Installation & Setup](#10-installation--setup)
 - [11. Project Status](#11-project-status)
 - [12. Roadmap](#12-roadmap)
@@ -212,3 +213,19 @@ Apartment:
 
 📄 Extended documentation:  
 - `/docs/java_XGBoost_via_Tribuo_Price_Predictor.md`  
+
+
+## 7. UML Diagra
+
+
+## 8. REST API Endpoints
+
+
+## 9. Technical Documentation.
+
+
+### 9.7 Guide to Java Class Types
+- Java Classes Hierarchy
+
+📄 Extended documentation:  
+- `/docs/java-classes.md`
