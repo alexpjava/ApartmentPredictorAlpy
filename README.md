@@ -27,7 +27,9 @@ Designed as a scalable educational project to document concepts such as Spring B
   - [5.2 Apartment](#52-apartment)
   - [5.3 Review](#53-review)
 - [6. REST API Endpoints](#6-rest-api-endpoints)
-- [7. UML Diagram](#7-uml-diagram)
+- [7. UML Diagram Versions](#7-uml-diagram-versions)
+  - [7.1 Uml v1](docs/DATA-create-JAR.md)
+   - [7.2 Uml v2](docs/SandBox/uml-fusion-owner-property-inherence-v2.md)
 - [7. UML Diagram & notes](docs/uml-notes.md)
 - [8. Entity–Relationship Diagram](docs/entityrelationship-diagram.md)
 - [9. Technical Documentation](#9-technical-documentation)
@@ -216,6 +218,9 @@ Apartment:
 
 
 ## 7. UML Diagra
+
+
+## 7. UML Diagram Versions
 
 
 ## 8. REST API Endpoints

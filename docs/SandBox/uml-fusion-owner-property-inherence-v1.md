@@ -1,6 +1,6 @@
 ```mermaid
 classDiagram
-    direction TB
+    direction LR
 
     %% Jerarquía de Personas
     class Person {
@@ -111,3 +111,5 @@ classDiagram
     Review "n" --o "1" Reviewer : reviewer
     Review "n" --o "1" Property : property
     ```
+
+    
