@@ -33,3 +33,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### README_FILES ###
+/README_files
+README.html
