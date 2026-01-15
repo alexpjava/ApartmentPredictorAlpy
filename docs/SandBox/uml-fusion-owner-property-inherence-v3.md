@@ -22,6 +22,13 @@ direction LR
     +getFollowersCount()
     }
 
+    class Analytics {
+		-DateRange range
+		+Map<String, Object>
+	    +getPricePrediction
+		+getAnalytics(DateRange range)
+    }
+
     class Person {
     -int id
     -String name
@@ -124,6 +131,7 @@ direction LR
     <<interface>> Registrable
     <<interface>> Notifiable
     <<interface>> Followable
+    <<interface>> Analytics
     <<abstract>> Person
     <<abstract>> Property
     <<abstract>> ResidentialProperty
@@ -136,6 +144,8 @@ direction LR
     Notifiable <|.. Owner : implements
     Notifiable <|.. Reviewer : implements
     Followable <|.. Reviewer : implements
+    Analytics <|.. Owner : implements
+    Analytics <|.. Apartment : implements
     ResidentialProperty <|-- Apartment
     ResidentialProperty <|-- SingleFamilyHome
     SingleFamilyHome <|-- House
