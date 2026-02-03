@@ -2,10 +2,6 @@
 classDiagram
     direction LR
 
-    %% ============================
-    %% CLASES
-    %% ============================
-
     class Person {
         <<abstract>>
         - int id
@@ -59,36 +55,22 @@ classDiagram
         - Apartment apartment
     }
 
-    %% ============================
-    %% HERENCIA
-    %% ============================
-
     Person <|-- Owner
     Person <|-- Reviewer
 
-    %% ============================
-    %% RELACIONES PRINCIPALES
-    %% ============================
+    Owner "1" --> "*" Apartment : owns
+    Reviewer "1" --> "*" Review : writes
+    Apartment "1" --> "*" Review : has
+    Review "*" --> "1" Apartment : about
 
-    Owner "1" --> "0..many" Apartment : owns
-    Reviewer "1" --> "0..many" Review : writes
-    Apartment "1" --> "0..many" Review : has
-    Review "1" --> "1" Apartment : about
-
-    %% ============================
-    %% ESTILOS (colores suaves)
-    %% ============================
-
-    classDef abstract fill:#f2f2f2,stroke:#333,stroke-width:1.5px,font-weight:bold;
+    classDef abstractStyle fill:#f2f2f2,stroke:#333,stroke-width:1.5px,font-weight:bold;
     classDef entity fill:#e8f4ff,stroke:#2b6cb0,stroke-width:1.3px;
     classDef value fill:#fff5e6,stroke:#c77900,stroke-width:1.3px;
 
-    class Person abstract
-    class Owner,Reviewer entity
-    class Apartment,Review value
-
-    %% Opcional: bordes redondeados
-    classDef rounded stroke-width:1px,stroke:#666,border-radius:8px;
-    class Person,Owner,Reviewer,Apartment,Review rounded
-
+    %% Apply styles individually to avoid parsing errors
+    class Person abstractStyle
+    class Owner entity
+    class Reviewer entity
+    class Apartment value
+    class Review value
 ```
