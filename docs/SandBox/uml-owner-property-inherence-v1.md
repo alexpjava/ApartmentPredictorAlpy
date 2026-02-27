@@ -106,23 +106,17 @@ direction TB
     %% Agregación many-to-many unidireccional: Apartment owner side, join table generada por JPA
     Apartment "0..*" o-- "0..*" School : schools in area
 
-    %% Composición: Owner posee sus PropertyContracts (join entity explícita)
-    Owner "1" *-- "0..*" PropertyContract : tiene
-
-    %% Composición: Property referenciada en PropertyContract (join entity explícita)
-    Property "1" *-- "0..*" PropertyContract : referenciada en
-
     %% Composición: Property posee sus Reviews
     Property "1" *-- "0..*" Review : contiene
 
     %% Composición: Reviewer posee sus Reviews
     Reviewer "1" *-- "0..*" Review : escribe
 
-    %% Asociación dirigida: PropertyContract apunta a Owner y a Property
+    %% Join entity: PropertyContract referencia a sus dos extremos (2 líneas, no 4)
     PropertyContract "0..*" --> "1" Owner : pertenece a
     PropertyContract "0..*" --> "1" Property : referencia a
 
-    %% Asociación lógica conceptual Owner <-> Property (via PropertyContract)
+    %% Asociación lógica many-to-many Owner <-> Property, join entity = PropertyContract
     Owner "0..*" -- "0..*" Property : posee · join entity PropertyContract
 ```
 
