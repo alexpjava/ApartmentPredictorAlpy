@@ -6,7 +6,7 @@ config:
   layout: elk
 ---
 classDiagram
-direction TB
+direction LR
 
 %% --- LEYENDA DEL DIAGRAMA ---
     note for Legend "<b>Simbología UML</b><br/>--<br/><b>Visibilidad</b><br/><b>-</b> Privado<br/><b>+</b> Público<br/><b>#</b> Protegido<br/>--<br/><b>Tipos de Clase</b><br/><b>«abstract»</b> Clase abstracta: no instanciable directamente<br/>--<br/><b>Relaciones</b><br/><b> &lt;|-- </b> Herencia / Extensión<br/><b> &lt;|.. </b> Implementación de Interfaz<br/><b> *-- </b> Composición: el hijo no existe sin el padre<br/><b> o-- </b> Agregación: el hijo puede existir de forma independiente<br/><b> --> </b> Asociación dirigida: referencia unidireccional<br/><b> --  </b> Asociación lógica: relación conceptual bidireccional"
@@ -127,8 +127,7 @@ direction TB
 - **`School`** hereda de `Property` y se relaciona con `Apartment` mediante **agregación many-to-many unidireccional** (`Apartment` es el lado owner). JPA genera la join table automáticamente sin entidad intermedia explícita.
 - **`PropertyContract`** es la **join entity explícita** que resuelve la relación muchos-a-muchos entre `Owner` y `Property`. A diferencia de la relación Apartment→School, aquí la tabla de unión es una entidad de dominio con atributos propios (valor, porcentaje, fecha), por lo que JPA la mapea a través de esta clase y no de forma automática.
 - **`Person`** es abstracta: no se instancia directamente. `Owner` y `Reviewer` son sus únicas especializaciones en V1.
-- **`Property`** es abstracta: el único subtipo concreto en V1 es `Apartment`. Subtipos como `House`, `Duplex` y `Townhouse` se incorporarán en V2.
-- **`PropertyContract`** (antes `Ownership`) es la entidad de unión que resuelve la relación muchos-a-muchos entre `Owner` y `Property`, almacenando atributos propios del contrato (valor, porcentaje, fecha).
+- **`Property`** es abstracta: el único subtipo concreto en V1 es `Apartment`. Subtipos como `House`, `Duplex` y `Townhouse` se incorporarán en versiones posteriores.
 - **`Review`** es propiedad tanto de `Property` (composición física) como de `Reviewer` (composición autoral). Ambas composiciones son válidas: una `Review` no existe sin su propiedad ni sin su autor.
-- Las **interfaces** (`Registrable`, `Notifiable`, `Followable`) y las clases `SingleFamilyHome`, `House`, `Duplex`, `Townhouse` y `Analytics` quedan diferidas para V2.
+- Las **interfaces** (`Registrable`, `Notifiable`, `Followable`) y las clases `SingleFamilyHome`, `House`, `Duplex`, `Townhouse` y `Analytics` quedan diferidas para versiones postriores.
 - La **asociación lógica** `Owner -- Property` se mantiene como referencia conceptual; la persistencia real se gestiona exclusivamente a través de `PropertyContract`.
