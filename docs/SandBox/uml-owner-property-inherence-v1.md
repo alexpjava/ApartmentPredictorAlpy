@@ -103,8 +103,8 @@ direction TB
     Property <|-- Apartment
     Property <|-- School
 
-    %% Asociación dirigida: Apartment es owner side, JPA genera join table automáticamente
-    Apartment "1" --> "0..*" School : schools in area
+    %% Agregación many-to-many unidireccional: Apartment owner side, join table generada por JPA
+    Apartment "0..*" o-- "0..*" School : schools in area
 
     %% Composición: Owner posee sus PropertyContracts (join entity explícita)
     Owner "1" *-- "0..*" PropertyContract : tiene
@@ -123,14 +123,14 @@ direction TB
     PropertyContract "0..*" --> "1" Property : referencia a
 
     %% Asociación lógica conceptual Owner <-> Property (via PropertyContract)
-    Owner "0..*" -- "0..*" Property : posee (lógico)
+    Owner "0..*" -- "0..*" Property : posee · join entity PropertyContract
 ```
 
 ---
 
 ## Notas de diseño — V1
 
-- **`School`** hereda de `Property` y se relaciona con `Apartment` mediante una **asociación dirigida unidireccional** (1 → 0..*). `Apartment` es el lado owner; JPA genera la join table automáticamente sin necesidad de una entidad intermedia explícita.
+- **`School`** hereda de `Property` y se relaciona con `Apartment` mediante **agregación many-to-many unidireccional** (`Apartment` es el lado owner). JPA genera la join table automáticamente sin entidad intermedia explícita.
 - **`PropertyContract`** es la **join entity explícita** que resuelve la relación muchos-a-muchos entre `Owner` y `Property`. A diferencia de la relación Apartment→School, aquí la tabla de unión es una entidad de dominio con atributos propios (valor, porcentaje, fecha), por lo que JPA la mapea a través de esta clase y no de forma automática.
 - **`Person`** es abstracta: no se instancia directamente. `Owner` y `Reviewer` son sus únicas especializaciones en V1.
 - **`Property`** es abstracta: el único subtipo concreto en V1 es `Apartment`. Subtipos como `House`, `Duplex` y `Townhouse` se incorporarán en V2.
